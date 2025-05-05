@@ -1,115 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NewVih | Página Inicial</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabor do Brasil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">RESTAURANT</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Coluna lateral -->
+      <div class="col-md-3 text-center mb-4">
+        <img src="img/logo_sabor_do_brasil.png" alt="logo" class="mb-3" style="width: 150px;">
+        <h4></h4>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</button>
+      </div>
+
+      <!-- Coluna de publicações -->
+      <div class="col-md-9">
+        <center><h1 class="mb-4" text-white >Publicações</h1></center>
+
+        <!-- Card 1 -->
+        <div class="card" id="post1">
+          <img src="img/p1.jpeg" class="card-img-top" alt="Prato 1">
+          <div class="card-body">
+            <h5 class="card-title">Ratatoile</h5>
+            <p><small id="likeCount1">2 Curtidas</small> · 1 Compartilhamento · 4 Comentários</p>
+            <button class="btn btn-warning" onclick="incrementLike(1)">Curtir</button>
+            <div class="comment-section">
+              <input type="text" class="comment-box" id="commentInput1" placeholder="Adicionar comentário">
+              <button class="btn btn-warning" onclick="addComment(1)">Adicionar Comentário</button>
+              <ul class="comment-list" id="commentList1"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" id="post2">
+          <img src="img/p2.webp" class="card-img-top" alt="Prato 2">
+          <div class="card-body">
+            <h5 class="card-title">Petiti Gateouir</h5>
+            <p><small id="likeCount2">9 Curtidas</small> · 1 Compartilhamento · 10 Comentários</p>
+            <button class="btn btn-warning" onclick="incrementLike(2)">Curtir</button>
+            <div class="comment-section">
+              <input type="text" class="comment-box" id="commentInput2" placeholder="Adicionar comentário">
+              <button class="btn btn-warning" onclick="addComment(2)">Adicionar Comentário</button>
+              <ul class="comment-list" id="commentList2"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" id="post3">
+          <img src="img/p3.jpg" class="card-img-top" alt="Prato 3">
+          <div class="card-body">
+            <h5 class="card-title">None</h5>
+            <p><small id="likeCount3">2 Curtidas</small> · 1 Compartilhamento · 2 Comentários</p>
+            <button class="btn btn-warning" onclick="incrementLike(3)">Curtir</button>
+            <div class="comment-section">
+              <input type="text" class="comment-box" id="commentInput3" placeholder="Adicionar comentário">
+              <button class="btn btn-warning" onclick="addComment(3)">Adicionar Comentário</button>
+              <ul class="comment-list" id="commentList3"></ul>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="text-center text-white py-4" style="background-color: #333;">
-      <h1>Bem-vinda(o)!</h1>
-      <p>Projeto feito por Vitória 💜</p>
-    </header>
-
-   <!-- Carrossel em quadrado -->
-<div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/1.png" class="d-block w-100" alt="Slide 1">
-    </div>
-    <div class="carousel-item">
-      <img src="img/2.avif" class="d-block w-100" alt="Slide 2">
-    </div>
-    <div class="carousel-item">
-      <img src="img/3.avif" class="d-block w-100" alt="Slide 3">
     </div>
   </div>
-  <!-- Controle anterior -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <!-- Controle próximo -->
-  <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+
+    <!-- Footer -->
+<footer>
+  <div class="container text-center">
+    <p>&copy; 2025 NewVih. Feito por Vitória.</p>
+    
+    <!-- Link para GitHub -->
+    <div>
+      <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" target="_blank">Github</a>
+    </div>
+
+    <!-- Redes sociais -->
+    <div class="social-icons mt-3">
+      <a href="https://github.com/vitoriacandido" target="_blank">
+        <i class="fab fa-github"></i> <!-- Ícone do GitHub -->
+      </a>
+      <a href="https://www.facebook.com/SeuPerfil" target="_blank">
+        <i class="fab fa-facebook"></i> <!-- Ícone do Facebook -->
+      </a>
+      <a href="https://twitter.com/SeuPerfil" target="_blank">
+        <i class="fab fa-twitter"></i> <!-- Ícone do Twitter -->
+      </a>
+      <a href="https://www.instagram.com/SeuPerfil" target="_blank">
+        <i class="fab fa-instagram"></i> <!-- Ícone do Instagram -->
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Adicionando Font Awesome para ícones -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 
 
 
-
-    <div class="container mt-5">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card shadow-sm">
-            <img src="img/p1.jpeg" alt="Ratatouille" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Ratatouille</h5>
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-success" onclick="toggleLike(1)">👍 <span id="like1">70</span></button>
-                <button class="btn btn-outline-danger" onclick="toggleDislike(1)">👎 <span id="dislike1">5</span></button>
-              </div>
-            </div>
+  
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-
-        <div class="col-md-5">
-          <div class="card shadow-sm">
-            <img src="img/p2.webp" alt="Petit Gateau" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Petit Gateau</h5>
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-success" onclick="toggleLike(2)">👍 <span id="like2">89</span></button>
-                <button class="btn btn-outline-danger" onclick="toggleDislike(2)">👎 <span id="dislike2">1</span></button>
+          <div class="modal-body">
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="username" class="form-label">Usuário</label>
+                <input type="text" class="form-control" id="username" placeholder="Digite seu usuário">
               </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="card shadow-sm">
-            <img src="img/p3.jpg" alt="None" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">None</h5>
-              <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-success" onclick="toggleLike(3)">👍 <span id="like3">45</span></button>
-                <button class="btn btn-outline-danger" onclick="toggleDislike(3)">👎 <span id="dislike3">2</span></button>
+              <div class="mb-3">
+                <label for="password" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
               </div>
-            </div>
+              <button type="submit" class="btn btn-warning w-100">Entrar</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
-    <footer class="bg-dark text-white text-center py-4">
-      <p>&copy; 2025 NewVih. Feito por Vitória.</p>
-    </footer>
-
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+  
+        if(username && password) {
+          alert('Login realizado com sucesso!');
+          const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+          modal.hide();
+        } else {
+          alert('Por favor, preencha todos os campos.');
+        }
+      });
+    </script>
+  
   </body>
-</html>
+  </html>
+  
