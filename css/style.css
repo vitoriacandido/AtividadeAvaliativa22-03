@@ -1,63 +1,62 @@
-<style>
-  body {
-    background-color: #fff;
-    color: #000;
-  }
+body {
+  background-color: #D97014; /* Laranja forte da paleta */
+  color: #000000; /* Preto */
+}
 
-  .card {
-    max-width: 350px;
-    margin: auto;
-    background-color: #fff;
-    border: 2px solid #ff5722; /* laranja */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
+.card {
+  max-width: 350px;
+  margin: auto;
+  background-color: #fdfdfd; /* Branco */
+  border: 2px solid #000000; /* Vermelho */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 
-  .card:hover {
-    transform: scale(1.02);
-  }
+.card:hover {
+  transform: scale(1.02);
+}
 
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-    filter: grayscale(30%) sepia(20%) contrast(1.2); /* efeito nas imagens */
-    border-bottom: 2px solid #ff5722;
-  }
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+  filter: grayscale(10%) sepia(10%) contrast(1.2); /* efeito nas imagens */
+  border-bottom: 2px solid #000000; /* Cinza */
+}
 
-  .card-title {
-    color: #d32f2f; /* vermelho forte */
-    font-weight: bold;
-  }
+.card-title {
+  color: #FF0000; /* Vermelho */
+  font-weight: bold;
+}
 
-  .like-icon, .dislike-icon, .fa-comment {
-    color: #d32f2f;
-  }
+.btn-secondary {
+  background-color: #fd0000; /* Preto */
+  color: #ffffff; /* Vermelho */
+  border: none;
+}
 
-  .btn-secondary {
-    background-color: #000;
-    color: #fff;
-    border: none;
-  }
+.btn-secondary:hover {
+  background-color: #D97014; /* Laranja forte ao passar o mouse */
+}
 
-  .btn-secondary:hover {
-    background-color: #d32f2f;
-  }
+.comment-input {
+  border: 3px solid #000000de; /* Preto */
+  background-color: #c6bebe;
+}
 
-  .comment-input {
-    border: 1px solid #d32f2f;
-  }
+/* Centralizar os cards */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50.5rem;
+  padding: 2rem 0;
+}
 
-  .comments {
-    font-size: 0.9rem;
-    color: #333;
-  }
+footer {
+  background-color: #fa8f32; /* Bege claro */
+  color: #000000; /* Preto para contraste */
+}
 
-  /* Centralizar os cards */
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem 0;
-  }
-</style>
+.container-fluid {
+  padding: 02,rem; /* Margem interna */
+}
