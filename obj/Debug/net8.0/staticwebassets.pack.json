@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\feij.webp",
+      "PackagePath": "staticwebassets\\img\\feij.webp"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\file.jfif",
+      "PackagePath": "staticwebassets\\img\\file.jfif"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\logo1.jpg",
+      "PackagePath": "staticwebassets\\img\\logo1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\moq.jpg",
+      "PackagePath": "staticwebassets\\img\\moq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\picnha.jpg",
+      "PackagePath": "staticwebassets\\img\\picnha.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\salada.webp",
+      "PackagePath": "staticwebassets\\img\\salada.webp"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\img\\sp.webp",
+      "PackagePath": "staticwebassets\\img\\sp.webp"
+    },
+    {
+      "Id": "C:\\Users\\Alunos\\Documents\\0\\AtividadeAvaliativa22-03\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AtividadeAvaliativa22-03.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AtividadeAvaliativa22-03.props",
+      "PackagePath": "build\\AtividadeAvaliativa22-03.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AtividadeAvaliativa22-03.props",
+      "PackagePath": "buildMultiTargeting\\AtividadeAvaliativa22-03.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AtividadeAvaliativa22-03.props",
+      "PackagePath": "buildTransitive\\AtividadeAvaliativa22-03.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
