@@ -7,7 +7,7 @@ body {
   max-width: 350px;
   margin: auto;
   background-color: #fdfdfd; /* Branco */
-  border: 2px solid #000000; /* Vermelho */
+  border: 2px solid #000000; /* Preto */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -20,7 +20,7 @@ body {
   height: 250px;
   object-fit: cover;
   filter: grayscale(10%) sepia(10%) contrast(1.2); /* efeito nas imagens */
-  border-bottom: 2px solid #000000; /* Cinza */
+  border-bottom: 2px solid #000000;
 }
 
 .card-title {
@@ -29,8 +29,8 @@ body {
 }
 
 .btn-secondary {
-  background-color: #fd0000; /* Preto */
-  color: #ffffff; /* Vermelho */
+  background-color: #fd0000; /* Vermelho */
+  color: #ffffff;
   border: none;
 }
 
@@ -48,7 +48,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50.5rem;
+  gap: 2rem; /* Ajustado para não estourar o layout */
   padding: 2rem 0;
 }
 
@@ -58,6 +58,5 @@ footer {
 }
 
 .container-fluid {
-  padding: 02,rem; /* Margem interna */
+  padding: 2rem; /* Corrigido */
 }
-
