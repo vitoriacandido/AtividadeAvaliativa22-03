@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="css/style.css" />
@@ -21,25 +21,25 @@
 <body class="bg">
 
   <!-- Cabeçalho -->
-  <div class="text-center py-3 bg-black shadow-sm">
+  <header class="text-center py-3 bg-black shadow-sm">
     <img src="img/logo1.jpg" alt="Logo Sabor do Brasil" class="logo-img">
     <h1 class="text-warning mt-2">Sabor do Brasil</h1>
-  </div>
+  </header>
 
-  <div class="container-fluid">
+  <main class="container-fluid">
     <div class="row min-vh-100">
 
       <!-- Sidebar do usuário -->
-      <div class="col-md-2 bg border-end text-center py-4">
-        <img src="img/usuario_01.jpg" class="rounded-circle mb-4" width="95" alt="Usuário">
+      <aside class="col-md-2 bg border-end text-center py-4">
+        <img src="img/usuario_01.jpg" class="rounded-circle mb-4" width="95" alt="Foto do usuário">
         <h5 class="mt-2">User</h5>
-        <hr class="sidebar-hr">
-        <p class="mt-3"><strong>456</strong><br>Quantidade Likes</p>
-        <p><strong>20</strong><br>Quantidade Dislikes</p>
-      </div>
+        <hr>
+        <p class="mt-3"><strong>456</strong><br>Likes</p>
+        <p><strong>20</strong><br>Dislikes</p>
+      </aside>
 
       <!-- Conteúdo principal -->
-      <div class="col-md-8 p-4">
+      <section class="col-md-8 p-4">
         <h3 class="text-center fw-bold mb-4">Minhas Publicações</h3>
 
         <!-- Publicação 1 -->
@@ -52,11 +52,11 @@
               <span>Brasil</span>
             </div>
             <div class="mt-2 d-flex align-items-center gap-3">
-              <i class="fas fa-thumbs-up text-danger like-button cursor-pointer"></i>
+              <i class="fas fa-thumbs-up text-danger like-button" role="button" aria-label="Curtir"></i>
               <span class="like-count">288</span>
-              <i class="fas fa-thumbs-down text-secondary dislike-button cursor-pointer"></i>
+              <i class="fas fa-thumbs-down text-secondary dislike-button" role="button" aria-label="Discurtir"></i>
               <span class="dislike-count">10</span>
-              <i class="far fa-comment"></i>
+              <i class="far fa-comment" aria-hidden="true"></i>
               <span>8</span>
             </div>
           </div>
@@ -64,7 +64,7 @@
 
         <!-- Publicação 2 -->
         <div class="card mb-4">
-          <img src="img/picanha.jpg" class="card-img-top" alt="Picanha">
+          <img src="img/picanha.jpg" class="card-img-top" alt="Picanha na Brasa">
           <div class="card-body">
             <h5 class="card-title">Picanha na Brasa</h5>
             <div class="d-flex justify-content-between small">
@@ -72,24 +72,23 @@
               <span>Rio Grande do Sul</span>
             </div>
             <div class="mt-2 d-flex align-items-center gap-3">
-              <i class="fas fa-thumbs-up text-danger like-button cursor-pointer"></i>
+              <i class="fas fa-thumbs-up text-danger like-button" role="button" aria-label="Curtir"></i>
               <span class="like-count">288</span>
-              <i class="fas fa-thumbs-down text-secondary dislike-button cursor-pointer"></i>
+              <i class="fas fa-thumbs-down text-secondary dislike-button" role="button" aria-label="Discurtir"></i>
               <span class="dislike-count">10</span>
-              <i class="far fa-comment"></i>
+              <i class="far fa-comment" aria-hidden="true"></i>
               <span>3</span>
             </div>
           </div>
         </div>
-
-      </div>
+      </section>
 
       <!-- Área lateral direita -->
-      <div class="col-md-2 bg border-start text-center p-5">
-        <a href="index.html" class="btn btn-danger w-75">Sair</a>
-      </div>
+      <aside class="col-md-2 bg border-start text-center p-5">
+        <a href="index.html" class="btn btn-danger w-75" role="button">Sair</a>
+      </aside>
     </div>
-  </div>
+  </main>
 
   <!-- Rodapé -->
   <footer class="text-center py-4 mt-5 bg-dark text-white">
@@ -118,19 +117,16 @@
       likeButtons.forEach(button => {
         button.addEventListener('click', function () {
           const countSpan = this.nextElementSibling;
-          let count = parseInt(countSpan.textContent);
+          let count = parseInt(countSpan.textContent) || 0;
           countSpan.textContent = count + 1;
         });
       });
 
       dislikeButtons.forEach(button => {
         button.addEventListener('click', function () {
-          if (!this.classList.contains('clicked')) {
-            const countSpan = this.nextElementSibling;
-            let count = parseInt(countSpan.textContent);
-            countSpan.textContent = count + 1;
-            this.classList.add('clicked'); // Mark as clicked
-          }
+          const countSpan = this.nextElementSibling;
+          let count = parseInt(countSpan.textContent) || 0;
+          countSpan.textContent = count + 1;
         });
       });
     });
