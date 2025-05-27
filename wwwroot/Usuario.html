@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perfil - Sabor do Brasil</title>
+  <title>Sabor do Brasil - Perfil do Usuário</title>
 
-  <!-- Bootstrap e Font Awesome para estilos e ícones -->
+  <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Arquivo CSS personalizado -->
+  <!-- CSS personalizado -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-<body class="bg-light">
+<body class="bg">
+
+  <!-- Cabeçalho -->
+  <div class="text-center py-3 bg-black shadow-sm">
+    <img src="img/logo1.jpg" alt="SENAI" style="max-width: 150px;">
+    <h1 class="text-warning mt-2">Sabor do Brasil</h1>
+  </div>
 
   <div class="container-fluid">
     <div class="row min-vh-100">
-      
-      <!-- Sidebar do perfil do usuário -->
-      <div class="col-md-2 bg-white border-end text-center py-4">
-        <!-- Imagem do usuário -->
-        <img src="img/usuario_01.jpg" class="rounded-circle mb-2" width="80" alt="usuário">
-        <h5 class="mt-2">usuario_01</h5>
+
+      <!-- Sidebar do usuário -->
+      <div class="col-md-2 bg border-end text-center py-4">
+        <img src="img/usuario_01.jpg" class="rounded-circle mb-4" width="95" alt="Usuário">
+        <h5 class="mt-2">User</h5>
         <hr style="width: 60%; margin: auto;">
-        <!-- Estatísticas de interações -->
-        <p class="mt-3"><strong>10.562</strong><br>Quantidade Likes</p>
-        <p><strong>200</strong><br>Quantidade Deslikes</p>
+        <p class="mt-3"><strong>456</strong><br>Quantidade Likes</p>
+        <p><strong>20</strong><br>Quantidade Deslikes</p>
       </div>
 
-      <!-- Área principal com as publicações -->
+      <!-- Conteúdo principal -->
       <div class="col-md-8 p-4">
         <h3 class="text-center fw-bold mb-4">Minhas Publicações</h3>
 
@@ -43,9 +53,12 @@
               <span>Brasil</span>
             </div>
             <div class="mt-2 d-flex align-items-center gap-3">
-              <i class="fas fa-thumbs-up text-danger"></i> <span>120</span>
-              <i class="fas fa-thumbs-down text-secondary"></i> <span>10</span>
-              <i class="far fa-comment"></i> <span>8</span>
+              <i class="fas fa-thumbs-up text-danger like-button" style="cursor:pointer;"></i>
+              <span class="like-count">288</span>
+              <i class="fas fa-thumbs-down text-secondary dislike-button" style="cursor:pointer;"></i>
+              <span class="dislike-count">10</span>
+              <i class="far fa-comment"></i>
+              <span>8</span>
             </div>
           </div>
         </div>
@@ -60,43 +73,65 @@
               <span>Rio Grande do Sul</span>
             </div>
             <div class="mt-2 d-flex align-items-center gap-3">
-              <i class="fas fa-thumbs-up text-danger"></i> <span>98</span>
-              <i class="fas fa-thumbs-down text-secondary"></i> <span>5</span>
-              <i class="far fa-comment"></i> <span>3</span>
+              <i class="fas fa-thumbs-up text-danger like-button" style="cursor:pointer;"></i>
+              <span class="like-count">288</span>
+              <i class="fas fa-thumbs-down text-secondary dislike-button" style="cursor:pointer;"></i>
+              <span class="dislike-count">10</span>
+              <i class="far fa-comment"></i>
+              <span>3</span>
             </div>
           </div>
         </div>
 
-        <!-- Mais publicações podem ser adicionadas abaixo -->
       </div>
 
-      <!-- Área lateral com botão de sair -->
-      <div class="col-md-2 text-center p-5 bg-white border-start">
-        <button class="btn btn-warning w-75" onclick="window.location.href='index.html'">Sair</button>
+      <!-- Área lateral direita -->
+      <div class="col-md-2 bg border-start text-center p-5">
+        <a href="index.html" class="btn btn-danger w-75">Sair</a>
       </div>
-
     </div>
   </div>
 
+  <!-- Rodapé -->
   <footer class="text-center py-4 mt-5 bg-dark text-white">
     <div class="container">
       <div class="mb-3">
-        <div class="mb-2">
-          <!-- Redes sociais -->
-          <a href="https://www.instagram.com/seu_usuario/" target="_blank" class="text-white me-3" title="Instagram" aria-label="Instagram">
-            <i class="fab fa-instagram fa-lg"></i>
-          </a>
-          <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" target="_blank" class="text-white me-3" title="GitHub" aria-label="GitHub">
-            <i class="fab fa-github fa-lg"></i>
-          </a>
-          <a href="https://www.facebook.com/seu_usuario" target="_blank" class="text-white me-3" title="Facebook" aria-label="Facebook">
-            <i class="fab fa-facebook fa-lg"></i>
-          </a>
-        </div>
+        <a href="https://www.instagram.com/seu_usuario/" target="_blank" class="text-white me-3">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" target="_blank" class="text-white me-3">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+        <a href="https://www.facebook.com/seu_usuario" target="_blank" class="text-white me-3">
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
       </div>
       <p class="mb-1">&copy; 2025 - Sabor do Brasil</p>
     </div>
   </footer>
 
+  <!-- JavaScript para interações de like/dislike -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const likeButtons = document.querySelectorAll('.like-button');
+      const dislikeButtons = document.querySelectorAll('.dislike-button');
+
+      likeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const countSpan = this.nextElementSibling;
+          let count = parseInt(countSpan.textContent);
+          countSpan.textContent = count + 1;
+        });
+      });
+
+      dislikeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const countSpan = this.nextElementSibling;
+          let count = parseInt(countSpan.textContent);
+          countSpan.textContent = count + 1;
+        });
+      });
+    });
+  </script>
 </body>
 </html>

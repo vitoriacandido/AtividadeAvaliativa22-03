@@ -1,13 +1,21 @@
+/* Fundo e cores gerais */
 body {
-  background-color: #D97014; /* Laranja forte da paleta */
+  background-color: #D97014; /* Laranja forte */
   color: #000000; /* Preto */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Container principal com padding */
+.container-fluid {
+  padding: 2rem;
+}
+
+/* Cards */
 .card {
   max-width: 350px;
   margin: auto;
   background-color: #fdfdfd; /* Branco */
-  border: 2px solid #000000; /* Preto */
+  border: 2px solid #000000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
@@ -19,44 +27,77 @@ body {
 .card-img-top {
   height: 250px;
   object-fit: cover;
-  filter: grayscale(10%) sepia(10%) contrast(1.2); /* efeito nas imagens */
+  filter: grayscale(10%) sepia(10%) contrast(1.2);
   border-bottom: 2px solid #000000;
 }
 
 .card-title {
-  color: #FF0000; /* Vermelho */
+  color: #FF0000;
   font-weight: bold;
 }
 
+/* Botões de interação */
 .btn-secondary {
-  background-color: #fd0000; /* Vermelho */
+  background-color: #fd0000;
   color: #ffffff;
   border: none;
 }
 
 .btn-secondary:hover {
-  background-color: #D97014; /* Laranja forte ao passar o mouse */
+  background-color: #D97014;
 }
 
+.btn-primary,
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-primary span,
+.btn-danger span {
+  font-weight: bold;
+}
+
+/* Comentários */
 .comment-input {
-  border: 3px solid #000000de; /* Preto */
+  border: 3px solid #000000de;
   background-color: #c6bebe;
+  padding: 0.5rem;
+  font-size: 0.95rem;
 }
 
-/* Centralizar os cards */
+.comments p {
+  background-color: #ffffffd6;
+  border-left: 4px solid #D97014;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
+
+/* Container dos cards (flex) */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem; /* Ajustado para não estourar o layout */
+  gap: 2rem;
   padding: 2rem 0;
 }
 
+/* Rodapé */
 footer {
-  background-color: #fa8f32; /* Bege claro */
-  color: #000000; /* Preto para contraste */
+  background-color: #fa8f32;
+  color: #000000;
 }
 
-.container-fluid {
-  padding: 2rem; /* Corrigido */
+/* Responsividade */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .cards-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
 }

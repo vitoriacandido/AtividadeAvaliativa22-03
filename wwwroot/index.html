@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sabor do Brasil - Publicações</title>
-  
+
   <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Font Awesome (para ícones) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="css/style.css" />
-  
-  <!-- Font Awesome versão 6 (se você preferir utilizar outros ícones) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
-
-
- <body>
+<body>
   <!-- Cabeçalho -->
   <div class="text-center py-3 bg-black shadow-sm">
     <img src="img/logo1.jpg" alt="SENAI" style="max-width: 150px;">
@@ -32,7 +28,6 @@
 
   <div class="container-fluid">
     <div class="row">
-
       <!-- Sidebar do usuário -->
       <div class="col-md-2 user-sidebar text-center border-end">
         <img src="img/logo1.jpg" alt="usuario" class="rounded-circle mb-2" width="90">
@@ -42,214 +37,214 @@
       </div>
 
       <!-- Área principal -->
-<div class="col-md-8 py-3">
-  <h2 class="text-center mb-4">Publicações</h2>
+      <div class="col-md-8 py-3">
+        <h2 class="text-center mb-4">Publicações</h2>
 
-  <!-- Publicação 1 -->
-  <div class="card mb-4">
-    <img src="img/feij.webp" class="card-img-top" alt="Feijoada">
-    <div class="card-body">
-      <h5 class="card-title">Feijoada</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 01</span>
-        <span>Brasil</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(0)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(0)">👎</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="0">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="0" onclick="addComment(0)">Comentar</button>
-        <div class="comments mt-3" id="comments-0"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Publicação 2 -->
-  <div class="card mb-5">
-    <img src="img/picnha.jpg" class="card-img-top" alt="Picanha">
-    <div class="card-body">
-      <h5 class="card-title">Picanha na Brasa</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 02</span>
-        <span>Rio Grande do Sul</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(1)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(1)">👎</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="1">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="1" onclick="addComment(1)">Comentar</button>
-        <div class="comments mt-3" id="comments-1"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Publicação 3 -->
-  <div class="card mb-4">
-    <img src="img/moq.jpg" class="card-img-top" alt="Moqueca">
-    <div class="card-body">
-      <h5 class="card-title">Moqueca Baiana</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 03</span>
-        <span>Maceió-AL</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(2)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(2)">👎</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="2">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="2" onclick="addComment(2)">Comentar</button>
-        <div class="comments mt-3" id="comments-2"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Publicação 4 -->
-  <div class="card mb-4">
-    <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
-    <div class="card-body">
-      <h5 class="card-title">Salada Italiana</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 04</span>
-        <span>Itália</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(3)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(3)">👎</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="3">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="3" onclick="addComment(3)">Comentar</button>
-        <div class="comments mt-3" id="comments-3"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Publicação 5 -->
-  <div class="card mb-4">
-    <img src="img/sp.webp" class="card-img-top" alt="Salada de Pepino">
-    <div class="card-body">
-      <h5 class="card-title">Salada de Pepino</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 05</span>
-        <span>None</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(4)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(4)">👎 Dislike</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="4">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="4" onclick="addComment(4)">Comentar</button>
-        <div class="comments mt-3" id="comments-4"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Publicação 6 -->
-  <div class="card mb-4">
-    <img src="img/file.jfif" class="card-img-top" alt="Filé Mignon">
-    <div class="card-body">
-      <h5 class="card-title">Filé Mignon acompanhado de Rúcula</h5>
-      <div class="d-flex justify-content-between">
-        <span>Local 06</span>
-        <span>França</span>
-      </div>
-      <div class="mt-3">
-        <button class="btn btn-sm btn-primary" onclick="like(5)">👍</button>
-        <button class="btn btn-sm btn-danger" onclick="dislike(5)">👎</button>
-      </div>
-      <div class="mt-3">
-        <input class="form-control comment-input" placeholder="Comente aqui..." data-id="5">
-        <button class="btn btn-sm btn-secondary mt-2 comment-btn" data-id="5" onclick="addComment(5)">Comentar</button>
-        <div class="comments mt-3" id="comments-5">Muito booom!</div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<script>
-// Função para adicionar um like
-function like(postId) {
-  const commentsDiv = document.getElementById(`comments-${postId}`);
-  commentsDiv.innerHTML += `<p>Você curtiu esse post!</p>`;
-}
-
-// Função para adicionar um dislike
-function dislike(postId) {
-  const commentsDiv = document.getElementById(`comments-${postId}`);
-  commentsDiv.innerHTML += `<p>Você discurtiu esse post!</p>`;
-}
-
-// Função para adicionar um comentário
-function addComment(postId) {
-  const commentInput = document.querySelector(`.comment-input[data-id="${postId}"]`);
-  const commentText = commentInput.value;
-  if (commentText) {
-    const commentsDiv = document.getElementById(`comments-${postId}`);
-    commentsDiv.innerHTML += `<p>${commentText}</p>`;
-    commentInput.value = ''; // Limpa o campo de comentário
-  }
-}
-</script>
-
- <!-- Botão Login -->
-<div class="col-md-2 text-center pt-5">
-  <button class="btn btn-warning px-4" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-</div>
-
-<!-- Modal de Login -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body">
-        <form action="login-action.php" method="POST">
-          <div class="mb-3">
-            <label for="username" class="form-label">Usuário</label>
-            <input type="text" class="form-control" id="username" name="username" required>
+        <!-- Publicação 1 -->
+        <div class="card mb-4">
+          <img src="img/feij.webp" class="card-img-top" alt="Feijoada">
+          <div class="card-body">
+            <h5 class="card-title">Feijoada</h5>
+            <div class="d-flex justify-content-between"><span>Local 01</span><span>Brasil</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(0)">👍 <span id="like-count-0">75</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(0)">👎 <span id="dislike-count-0">22</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="0">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(0)">Comentar</button>
+              <div class="comments mt-3" id="comments-0"></div>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <!-- Publicação 2 -->
+        <div class="card mb-4">
+          <img src="img/picanha.jpg" class="card-img-top" alt="Picanha">
+          <div class="card-body">
+            <h5 class="card-title">Picanha na Brasa</h5>
+            <div class="d-flex justify-content-between"><span>Local 02</span><span>Rio Grande do Sul</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(1)">👍 <span id="like-count-1">87</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(1)">👎 <span id="dislike-count-1">45</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="1">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(1)">Comentar</button>
+              <div class="comments mt-3" id="comments-1"></div>
+            </div>
           </div>
-          <!-- Aqui você pode alterar a URL para redirecionar para o seu sistema de login -->
-          <a href="Usuario.html" class="btn btn-warning" target="_blank">Entrar</a>
-        </form>
+        </div>
+
+        <!-- Publicação 3 -->
+        <div class="card mb-4">
+          <img src="img/moq.jpg" class="card-img-top" alt="Moqueca">
+          <div class="card-body">
+            <h5 class="card-title">Moqueca Baiana</h5>
+            <div class="d-flex justify-content-between"><span>Local 03</span><span>Maceió-AL</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(2)">👍 <span id="like-count-2">775</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(2)">👎 <span id="dislike-count-2">4</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="2">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(2)">Comentar</button>
+              <div class="comments mt-3" id="comments-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publicação 4 -->
+        <div class="card mb-4">
+          <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
+          <div class="card-body">
+            <h5 class="card-title">Salada Italiana</h5>
+            <div class="d-flex justify-content-between"><span>Local 04</span><span>Itália</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(3)">👍 <span id="like-count-3">855</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(3)">👎 <span id="dislike-count-3">3</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="3">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(3)">Comentar</button>
+              <div class="comments mt-3" id="comments-3"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publicação 5 -->
+        <div class="card mb-4">
+          <img src="img/sp.webp" class="card-img-top" alt="Salada de Pepino">
+          <div class="card-body">
+            <h5 class="card-title">Salada de Pepino</h5>
+            <div class="d-flex justify-content-between"><span>Local 05</span><span>None</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(4)">👍 <span id="like-count-4">986</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(4)">👎 <span id="dislike-count-4">7</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="4">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(4)">Comentar</button>
+              <div class="comments mt-3" id="comments-4"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Publicação 6 -->
+        <div class="card mb-4">
+          <img src="img/file.jfif" class="card-img-top" alt="Filé Mignon">
+          <div class="card-body">
+            <h5 class="card-title">Filé Mignon acompanhado de Rúcula</h5>
+            <div class="d-flex justify-content-between"><span>Local 06</span><span>França</span></div>
+            <div class="mt-3">
+              <button class="btn btn-sm btn-primary" onclick="like(5)">👍 <span id="like-count-5">75</span></button>
+              <button class="btn btn-sm btn-danger" onclick="dislike(5)">👎 <span id="dislike-count-5">22</span></button>
+            </div>
+            <div class="mt-3">
+              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="5">
+              <button class="btn btn-sm btn-secondary mt-2 comment-btn" onclick="addComment(5)">Comentar</button>
+              <div class="comments mt-3" id="comments-5">Muito booom!</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botão Login -->
+      <div class="col-md-2 text-center pt-5">
+        <button class="btn btn-warning px-4" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
       </div>
     </div>
   </div>
-</div>
 
-<footer class="text-center py-4 mt-5 bg-dark text-white">
-  <div class="container">
-    <div class="mb-3">
-      <div class="mb-2">
-        <!-- Redes sociais -->
-        <a href="https://www.instagram.com/seu_usuario/" target="_blank" class="text-white me-3" title="Instagram" aria-label="Instagram">
-          <i class="fab fa-instagram fa-lg"></i>
-        </a>
-        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" target="_blank" class="text-white me-3" title="GitHub - AtividadeAvaliativa22-03.git" aria-label="GitHub - AtividadeAvaliativa22-03.git">
-          <i class="fab fa-github fa-lg"></i>
-        </a>
-        <!-- Adicionando mais redes sociais -->
-        <a href="https://www.facebook.com/seu_usuario" target="_blank" class="text-white me-3" title="Facebook" aria-label="Facebook">
-          <i class="fab fa-facebook fa-lg"></i>
-        </a>
+  <!-- Modal de Login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Usuário</label>
+              <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <a href="usuario.html" class="btn btn-warning w-100">Entrar</a>
+          </form>
+        </div>
       </div>
     </div>
-    <!-- Direitos autorais -->
-    <p class="mb-1">&copy; 2025 - Sabor do Brasil</p>
   </div>
-</footer>
 
- </body>
- </html>
+  <!-- Rodapé -->
+  <footer class="text-center py-4 mt-5 bg-dark text-white">
+    <div class="container">
+      <div class="mb-3">
+        <a href="https://www.instagram.com/seu_usuario/" target="_blank" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" target="_blank" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://www.facebook.com/seu_usuario" target="_blank" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+      </div>
+      <p class="mb-1">&copy; 2025 - Sabor do Brasil</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const likes = [75, 86, 775, 856, 985, 75];
+    const dislikes = [22, 45, 4, 2, 6, 22];
+
+    function like(postId) {
+      likes[postId]++;
+      document.getElementById(`like-count-${postId}`).innerText = likes[postId];
+      const commentsDiv = document.getElementById(`comments-${postId}`);
+      commentsDiv.innerHTML += `<p>Você curtiu esse post!</p>`;
+    }
+
+    function dislike(postId) {
+      dislikes[postId]++;
+      document.getElementById(`dislike-count-${postId}`).innerText = dislikes[postId];
+      const commentsDiv = document.getElementById(`comments-${postId}`);
+      commentsDiv.innerHTML += `<p>Você discurtiu esse post!</p>`;
+    }
+
+    function addComment(postId) {
+      const commentInput = document.querySelector(`.comment-input[data-id="${postId}"]`);
+      const commentText = commentInput.value.trim();
+      if (commentText !== '') {
+        const commentsDiv = document.getElementById(`comments-${postId}`);
+        commentsDiv.innerHTML += `<p>${commentText}</p>`;
+        commentInput.value = '';
+      }
+    }
+  </script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const likeButtons = document.querySelectorAll('.like-button');
+      const dislikeButtons = document.querySelectorAll('.dislike-button');
+
+      likeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const countSpan = this.nextElementSibling;
+          let count = parseInt(countSpan.textContent);
+          countSpan.textContent = count + 1;
+        });
+      });
+
+      dislikeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const countSpan = this.nextElementSibling;
+          let count = parseInt(countSpan.textContent);
+          countSpan.textContent = count + 1;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
