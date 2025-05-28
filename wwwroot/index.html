@@ -5,236 +5,416 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sabor do Brasil - Publicações</title>
 
-  <!-- Bootstrap 5 CSS -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-  <!-- CSS personalizado -->
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    .navbar-brand {
+      font-weight: bold;
+      color: #ffc107 !important;
+    }
+
+    .logo-img {
+      width: 45px;
+      border-radius: 50%;
+    }
+
+    .card img {
+      object-fit: cover;
+      height: 300px;
+    }
+
+    .card-body {
+      background-color: #fff8e1;
+    }
+
+    .like-button, .dislike-button, .comment-button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .like-button:hover:not(.text-primary), 
+    .dislike-button:hover:not(.text-danger),
+    .comment-button:hover {
+      transform: scale(1.1);
+      color: #ffc107;
+    }
+
+    .like-button.text-primary {
+      color: #0d6efd; /* azul do Bootstrap */
+      cursor: default;
+    }
+
+    .dislike-button.text-danger {
+      color: #dc3545; /* vermelho Bootstrap */
+      cursor: default;
+    }
+
+    .user-sidebar, .right-sidebar {
+      border-right: 1px solid #ddd;
+    }
+
+    .modal-content {
+      border-radius: 10px;
+    }
+
+    /* Remover foco dos botões ao clicar */
+    .like-button:focus, .dislike-button:focus, .comment-button:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  </style>
 </head>
 
-<body>
-  <!-- Cabeçalho -->
-  <header class="text-center py-3 bg-black shadow-sm">
-    <img src="img/logo1.jpg" alt="Logo do Sabor do Brasil" class="logo-img">
-    <h1 class="text-warning mt-2">Sabor do Brasil</h1>
+<body class="bg-white">
+
+  <!-- Cabeçalho estilo Instagram -->
+  <header class="navbar navbar-dark bg-black sticky-top px-3 shadow-sm justify-content-between">
+    <a class="navbar-brand" href="#">Sabor do Brasil</a>
+    <div class="d-flex align-items-center gap-3">
+      <a href="#" class="text-white" aria-label="Home"><i class="fas fa-home"></i></a>
+      <a href="#" class="text-white" aria-label="Buscar"><i class="fas fa-search"></i></a>
+      <a href="#" class="text-white" aria-label="Adicionar publicação"><i class="fas fa-plus-square"></i></a>
+      <a href="#" class="text-white" aria-label="Perfil"><i class="fas fa-user-circle"></i></a>
+      <img src="img/logo1.jpg" alt="User" class="rounded-circle" width="32" height="32" style="object-fit: cover;">
+    </div>
   </header>
 
   <main class="container-fluid">
-    <div class="row">
-      <!-- Sidebar do usuário -->
-      <aside class="col-md-2 user-sidebar text-center border-end">
-        <img src="img/logo1.jpg" alt="Foto do usuário" class="rounded-circle mb-2" width="90">
-        <h2>Sabor Brasil</h2>
-        <p><strong>10.562</strong><br>Likes</p>
-        <p><strong>200</strong><br>Dislikes</p>
+    <div class="row min-vh-100">
+
+      <!-- Sidebar esquerda -->
+      <aside class="col-md-2 bg-white text-center py-4 user-sidebar">
+        <img src="img/logo1.jpg" alt="Foto do usuário" class="rounded-circle mb-4" width="95">
+        <h5 class="mt-2">Sabor Brasil</h5>
+        <hr>
+        <p><strong id="totalLikes">10.562</strong><br>Likes</p>
+        <p><strong id="totalDislikes">200</strong><br>Dislikes</p>
       </aside>
 
-      <!-- Área principal -->
-      <section class="col-md-8 py-3">
-        <h2 class="text-center mb-4">Publicações</h2>
+      <!-- Conteúdo principal -->
+      <section class="col-md-8 p-4">
+        <h3 class="text-center fw-bold mb-4">Publicações</h3>
 
-        <!-- Estrutura de uma publicação (reutilizável) -->
-        <!-- Pub 1 -->
-        <div class="card mb-4">
-          <img src="img/feij.webp" class="card-img-top" alt="Feijoada brasileira">
-          <div class="card-body">
-            <h5 class="card-title">Feijoada</h5>
-            <div class="d-flex justify-content-between"><span>Local 01</span><span>Brasil</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(0)" aria-label="Curtir Feijoada">👍 <span id="like-count-0">75</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(0)" aria-label="Discurtir Feijoada">👎 <span id="dislike-count-0">22</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="0" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(0)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-0"></ul>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+          <!-- Publicação 1 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/feij.webp" class="card-img-top" alt="Feijoada brasileira">
+              <div class="card-body">
+                <h5 class="card-title">Feijoada</h5>
+                <p class="mb-1 text-muted small">Local 01 - Brasil</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Feijoada"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
+                  <button class="dislike-button" aria-label="Não curtir Feijoada"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">22</span>
+                  <button class="comment-button" data-post-id="1" aria-label="Comentários Feijoada">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Repita para outras publicações (ajustando índices e textos) -->
-
-        <!-- Pub 2 -->
-        <div class="card mb-4">
-          <img src="img/picanha.jpg" class="card-img-top" alt="Picanha na brasa">
-          <div class="card-body">
-            <h5 class="card-title">Picanha na Brasa</h5>
-            <div class="d-flex justify-content-between"><span>Local 02</span><span>Rio Grande do Sul</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(1)">👍 <span id="like-count-1">86</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(1)">👎 <span id="dislike-count-1">45</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="1" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(1)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-1"></ul>
+          <!-- Publicação 2 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/picanha.jpg" class="card-img-top" alt="Picanha na brasa">
+              <div class="card-body">
+                <h5 class="card-title">Picanha na Brasa</h5>
+                <p class="mb-1 text-muted small">Local 02 - Rio Grande do Sul</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Picanha"><i class="fas fa-thumbs-up"></i></button><span class="like-count">86</span>
+                  <button class="dislike-button" aria-label="Não curtir Picanha"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">45</span>
+                  <button class="comment-button" data-post-id="2" aria-label="Comentários Picanha">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Pub 3 -->
-        <div class="card mb-4">
-          <img src="img/moq.jpg" class="card-img-top" alt="Moqueca baiana">
-          <div class="card-body">
-            <h5 class="card-title">Moqueca Baiana</h5>
-            <div class="d-flex justify-content-between"><span>Local 03</span><span>Maceió-AL</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(2)">👍 <span id="like-count-2">775</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(2)">👎 <span id="dislike-count-2">4</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="2" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(2)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-2"></ul>
+          <!-- Publicação 3 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/moq.jpg" class="card-img-top" alt="Moqueca baiana">
+              <div class="card-body">
+                <h5 class="card-title">Moqueca Baiana</h5>
+                <p class="mb-1 text-muted small">Local 03 - Maceió-AL</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Moqueca"><i class="fas fa-thumbs-up"></i></button><span class="like-count">775</span>
+                  <button class="dislike-button" aria-label="Não curtir Moqueca"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">4</span>
+                  <button class="comment-button" data-post-id="3" aria-label="Comentários Moqueca">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Pub 4 -->
-        <div class="card mb-4">
-          <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
-          <div class="card-body">
-            <h5 class="card-title">Salada Italiana</h5>
-            <div class="d-flex justify-content-between"><span>Local 04</span><span>Itália</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(3)">👍 <span id="like-count-3">856</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(3)">👎 <span id="dislike-count-3">2</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="3" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(3)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-3"></ul>
+          <!-- Publicação 4 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
+              <div class="card-body">
+                <h5 class="card-title">Salada Italiana</h5>
+                <p class="mb-1 text-muted small">Local 04 - Itália</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Salada Italiana"><i class="fas fa-thumbs-up"></i></button><span class="like-count">856</span>
+                  <button class="dislike-button" aria-label="Não curtir Salada Italiana"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">2</span>
+                  <button class="comment-button" data-post-id="4" aria-label="Comentários Salada Italiana">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Pub 5 -->
-        <div class="card mb-4">
-          <img src="img/sp.webp" class="card-img-top" alt="Salada de Pepino">
-          <div class="card-body">
-            <h5 class="card-title">Salada de Pepino</h5>
-            <div class="d-flex justify-content-between"><span>Local 05</span><span>Desconhecido</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(4)">👍 <span id="like-count-4">985</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(4)">👎 <span id="dislike-count-4">6</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="4" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(4)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-4"></ul>
+          <!-- Publicação 5 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/sp.webp" class="card-img-top" alt="Salada de Pepino">
+              <div class="card-body">
+                <h5 class="card-title">Salada de Pepino</h5>
+                <p class="mb-1 text-muted small">Local 05 - Desconhecido</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Salada de Pepino"><i class="fas fa-thumbs-up"></i></button><span class="like-count">985</span>
+                  <button class="dislike-button" aria-label="Não curtir Salada de Pepino"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">6</span>
+                  <button class="comment-button" data-post-id="5" aria-label="Comentários Salada de Pepino">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Pub 6 -->
-        <div class="card mb-4">
-          <img src="img/file.jfif" class="card-img-top" alt="Filé Mignon com rúcula">
-          <div class="card-body">
-            <h5 class="card-title">Filé Mignon acompanhado de Rúcula</h5>
-            <div class="d-flex justify-content-between"><span>Local 06</span><span>França</span></div>
-            <div class="mt-3">
-              <button class="btn btn-sm btn-primary" onclick="like(5)">👍 <span id="like-count-5">75</span></button>
-              <button class="btn btn-sm btn-danger" onclick="dislike(5)">👎 <span id="dislike-count-5">22</span></button>
-            </div>
-            <div class="mt-3">
-              <input class="form-control comment-input" placeholder="Comente aqui..." data-id="5" />
-              <button class="btn btn-sm btn-secondary mt-2" onclick="addComment(5)">Comentar</button>
-              <ul class="comments mt-3 list-unstyled" id="comments-5"></ul>
+          <!-- Publicação 6 -->
+          <div class="col">
+            <div class="card">
+              <img src="img/file.jfif" class="card-img-top" alt="Filé Mignon com rúcula">
+              <div class="card-body">
+                <h5 class="card-title">Filé Mignon com Rúcula</h5>
+                <p class="mb-1 text-muted small">Local 06 - França</p>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="like-button" aria-label="Curtir Filé Mignon"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
+                  <button class="dislike-button" aria-label="Não curtir Filé Mignon"><i class="fas fa-thumbs-down"></i></button><span class="dislike-count">22</span>
+                  <button class="comment-button" data-post-id="6" aria-label="Comentários Filé Mignon">
+                    <i class="far fa-comment"></i><span class="comment-count">0</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </section>
 
-      <!-- Botão Login -->
-      <aside class="col-md-2 text-center pt-5">
-        <button class="btn btn-warning px-4" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-      </aside>
+      <!-- Sidebar direita -->
+    
     </div>
   </main>
 
-  <!-- Modal de Login -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+  <!-- Modal de Comentários -->
+  <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
-        <form id="loginForm">
-          <div class="modal-header">
-            <h5 class="modal-title">Login</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-          </div>
-          <div class="modal-body">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Comentários</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="commentList" class="list-group mb-3"></ul>
+          <form id="commentForm">
             <div class="mb-3">
-              <label for="username" class="form-label">Usuário</label>
-              <input type="text" class="form-control" id="username" required />
+              <textarea id="commentText" class="form-control" rows="3" placeholder="Escreva um comentário..." required></textarea>
             </div>
-            <div class="mb-3">
-              <label for="password" class="form-label">Senha</label>
-              <input type="password" class="form-control" id="password" required />
-            </div>
-            <button type="submit" class="btn btn-warning w-100">Entrar</button>
-          </div>
-        </form>
+            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Rodapé -->
-  <footer class="text-center py-4 mt-5 bg-dark text-white">
-    <div class="container">
-      <div class="mb-3">
-        <a href="https://www.instagram.com/seu_usuario/" class="text-white me-3" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" class="text-white me-3" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.facebook.com/seu_usuario" class="text-white me-3" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-      </div>
-      <p class="mb-0">&copy; 2025 - Sabor do Brasil</p>
-    </div>
-  </footer>
+  <!-- Bootstrap JS + Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JavaScript -->
+  <!-- Script principal -->
   <script>
-    const likes = [75, 86, 775, 856, 985, 75];
-    const dislikes = [22, 45, 4, 2, 6, 22];
-
-    function like(postId) {
-      likes[postId]++;
-      document.getElementById(`like-count-${postId}`).innerText = likes[postId];
-    }
-
-    function dislike(postId) {
-      dislikes[postId]++;
-      document.getElementById(`dislike-count-${postId}`).innerText = dislikes[postId];
-    }
-
-    function addComment(postId) {
-      const input = document.querySelector(`.comment-input[data-id="${postId}"]`);
-      const comment = input.value.trim();
-      if (comment) {
-        const list = document.getElementById(`comments-${postId}`);
-        const item = document.createElement('li');
-        item.textContent = comment;
-        list.appendChild(item);
-        input.value = '';
-      }
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('loginForm');
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-        if (username && password) {
-          window.location.href = 'usuario.html';
-        } else {
-          alert('Preencha todos os campos!');
+      // Estado temporário para likes/dislikes e comentários na sessão (sessionStorage)
+      const likedPosts = new Set(JSON.parse(sessionStorage.getItem('likedPosts') || '[]'));
+      const dislikedPosts = new Set(JSON.parse(sessionStorage.getItem('dislikedPosts') || '[]'));
+      const commentsData = JSON.parse(sessionStorage.getItem('commentsData') || '{}');
+
+      // Função para salvar estado na sessão
+      function saveSession() {
+        sessionStorage.setItem('likedPosts', JSON.stringify([...likedPosts]));
+        sessionStorage.setItem('dislikedPosts', JSON.stringify([...dislikedPosts]));
+        sessionStorage.setItem('commentsData', JSON.stringify(commentsData));
+      }
+
+      // Atualiza a contagem total no sidebar
+      function updateSidebarTotals() {
+        let totalLikes = 0;
+        let totalDislikes = 0;
+
+        document.querySelectorAll('.like-count').forEach(el => {
+          totalLikes += parseInt(el.textContent) || 0;
+        });
+
+        document.querySelectorAll('.dislike-count').forEach(el => {
+          totalDislikes += parseInt(el.textContent) || 0;
+        });
+
+        document.getElementById('totalLikes').textContent = totalLikes.toLocaleString('pt-BR');
+        document.getElementById('totalDislikes').textContent = totalDislikes.toLocaleString('pt-BR');
+      }
+
+      // Likes
+      document.querySelectorAll('.like-button').forEach((button, index) => {
+        const postId = (index + 1).toString();
+
+        // Bloqueia botão se já curtiu
+        if (likedPosts.has(postId)) {
+          button.classList.add('text-primary');
+          button.style.cursor = 'default';
         }
+
+        button.addEventListener('click', () => {
+          if (likedPosts.has(postId)) return; // Já curtiu
+
+          // Se já descurtiu, remover dislike antes
+          if (dislikedPosts.has(postId)) {
+            dislikedPosts.delete(postId);
+            const dislikeCountSpan = button.parentElement.querySelector('.dislike-count');
+            dislikeCountSpan.textContent = parseInt(dislikeCountSpan.textContent) - 1;
+            // Também resetar classe do botão dislike
+            const dislikeBtn = button.parentElement.querySelector('.dislike-button');
+            dislikeBtn.classList.remove('text-danger');
+            dislikeBtn.style.cursor = 'pointer';
+          }
+
+          likedPosts.add(postId);
+          button.classList.add('text-primary');
+          button.style.cursor = 'default';
+
+          const likeCountSpan = button.nextElementSibling;
+          likeCountSpan.textContent = parseInt(likeCountSpan.textContent) + 1;
+
+          saveSession();
+          updateSidebarTotals();
+        });
       });
+
+      // Dislikes
+      document.querySelectorAll('.dislike-button').forEach((button, index) => {
+        const postId = (index + 1).toString();
+
+        if (dislikedPosts.has(postId)) {
+          button.classList.add('text-danger');
+          button.style.cursor = 'default';
+        }
+
+        button.addEventListener('click', () => {
+          if (dislikedPosts.has(postId)) return;
+
+          if (likedPosts.has(postId)) {
+            likedPosts.delete(postId);
+            const likeCountSpan = button.parentElement.querySelector('.like-count');
+            likeCountSpan.textContent = parseInt(likeCountSpan.textContent) - 1;
+
+            // Resetar classe do botão like
+            const likeBtn = button.parentElement.querySelector('.like-button');
+            likeBtn.classList.remove('text-primary');
+            likeBtn.style.cursor = 'pointer';
+          }
+
+          dislikedPosts.add(postId);
+          button.classList.add('text-danger');
+          button.style.cursor = 'default';
+
+          const dislikeCountSpan = button.nextElementSibling;
+          dislikeCountSpan.textContent = parseInt(dislikeCountSpan.textContent) + 1;
+
+          saveSession();
+          updateSidebarTotals();
+        });
+      });
+
+      // Comentários
+      let currentPostId = null;
+      const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+      const commentList = document.getElementById('commentList');
+      const commentForm = document.getElementById('commentForm');
+      const commentText = document.getElementById('commentText');
+
+      // Abrir modal comentário
+      document.querySelectorAll('.comment-button').forEach(button => {
+        button.addEventListener('click', () => {
+          currentPostId = button.getAttribute('data-post-id');
+          loadComments(currentPostId);
+          commentModal.show();
+        });
+      });
+
+      function loadComments(postId) {
+        commentList.innerHTML = '';
+        const comments = commentsData[postId] || [];
+        if (comments.length === 0) {
+          commentList.innerHTML = '<li class="list-group-item text-muted">Sem comentários ainda.</li>';
+        } else {
+          comments.forEach(c => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = c;
+            commentList.appendChild(li);
+          });
+        }
+      }
+
+      commentForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const text = commentText.value.trim();
+        if (!text) return;
+
+        if (!commentsData[currentPostId]) {
+          commentsData[currentPostId] = [];
+        }
+        commentsData[currentPostId].push(text);
+        saveSession();
+
+        // Atualizar lista e contagem
+        loadComments(currentPostId);
+        updateCommentCount(currentPostId);
+
+        commentText.value = '';
+      });
+
+      function updateCommentCount(postId) {
+        const commentBtn = document.querySelector(`.comment-button[data-post-id="${postId}"]`);
+        if (!commentBtn) return;
+
+        const countSpan = commentBtn.querySelector('.comment-count');
+        const count = commentsData[postId]?.length || 0;
+        countSpan.textContent = count;
+      }
+
+      // Inicializa as contagens de comentários na página
+      document.querySelectorAll('.comment-button').forEach(button => {
+        const pid = button.getAttribute('data-post-id');
+        updateCommentCount(pid);
+      });
+
+      updateSidebarTotals();
     });
   </script>
 </body>
