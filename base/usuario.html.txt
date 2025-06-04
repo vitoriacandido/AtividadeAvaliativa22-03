@@ -120,8 +120,10 @@
 
     <div class="d-flex align-items-center gap-3">
       <!-- Ícones do menu -->
-      <a href="index.html" class="text-white" aria-label="Página Inicial"><i class="fas fa-home"></i></a>
-      <a href="Usuario.html" class="text-white" aria-label="Perfil"><i class="fas fa-user-circle"></i></a>
+      <a href="#" class="text-white" aria-label="Página Inicial"><i class="fas fa-home"></i></a>
+      <a href="#" class="text-white" aria-label="Buscar"><i class="fas fa-search"></i></a>
+      <a href="#" class="text-white" aria-label="Adicionar publicação"><i class="fas fa-plus-square"></i></a>
+      <a href="#" class="text-white" aria-label="Perfil"><i class="fas fa-user-circle"></i></a>
 
       <!-- Foto do usuário -->
       <img src="img/user1.jpg" alt="Foto do usuário" class="rounded-circle" width="32" height="32" style="object-fit: cover;">
@@ -225,7 +227,10 @@
     </div>
   </div>
 
-   <!-- Rodapé -->
+  <!-- Botão de modo escuro -->
+  <button class="btn btn-dark mode-toggle" aria-label="Alternar modo escuro" title="Alternar modo escuro">🌙</button>
+
+  <!-- Rodapé -->
   <footer class="text-center py-4 bg-dark text-white">
     <div class="container">
       <div class="mb-3">
@@ -242,112 +247,203 @@
       <p class="mb-1">&copy; 2025 - Sabor do Brasil</p>
     </div>
   </footer>
-  
-    <!-- Botão modo escuro -->
-  <button class="btn btn-dark mode-toggle" aria-label="Alternar modo escuro" title="Modo escuro">🌙</button>
 
-  <!-- Bootstrap 5 JS -->
+  <!-- Bootstrap JS + Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script de interatividade -->
+  <!-- JavaScript de interações -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const likedPosts = new Set(JSON.parse(localStorage.getItem('likedPosts') || '[]'));
       const dislikedPosts = new Set(JSON.parse(localStorage.getItem('dislikedPosts') || '[]'));
-      const commentsData = JSON.parse(localStorage.getItem('commentsData') || {});
-      const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
-      const commentForm = document.getElementById('commentForm');
-      const commentText = document.getElementById('commentText');
-      const commentList = document.getElementById('commentList');
-      let currentPostId = null;
+      const commentsData = JSON.parse(localStorage.getItem('commentsData') || '{}');
 
+      // Atualiza o total de likes e dislikes na sidebar
+      function updateSidebarTotals() {
+        let totalLikes = 0;
+        let totalDislikes = 0;
+        document.querySelectorAll('.like-count').forEach(el => {
+          totalLikes += parseInt(el.textContent) || 0;
+        });
+        document.querySelectorAll('.dislike-count').forEach(el => {
+          totalDislikes += parseInt(el.textContent) || 0;
+        });
+        document.getElementById('totalLikes').textContent = totalLikes.toLocaleString('pt-BR');
+        document.getElementById('totalDislikes').textContent = totalDislikes.toLocaleString('pt-BR');
+      }
+
+      // Salva dados no localStorage
       function saveStorage() {
         localStorage.setItem('likedPosts', JSON.stringify([...likedPosts]));
         localStorage.setItem('dislikedPosts', JSON.stringify([...dislikedPosts]));
         localStorage.setItem('commentsData', JSON.stringify(commentsData));
       }
 
-      document.querySelectorAll('.like-button').forEach(button => {
-        button.addEventListener('click', () => {
-          const card = button.closest('[data-post-id]');
-          const postId = card.dataset.postId;
-          const countEl = card.querySelector('.like-count');
-          if (!likedPosts.has(postId)) {
-            likedPosts.add(postId);
-            countEl.textContent = parseInt(countEl.textContent) + 1;
-            button.classList.add('liked');
-            saveStorage();
+      // Inicializa estado dos botões like/dislike
+      document.querySelectorAll('.card').forEach(card => {
+        const postId = card.getAttribute('data-post-id');
+
+        const likeBtn = card.querySelector('.like-button');
+        const dislikeBtn = card.querySelector('.dislike-button');
+
+        if (likedPosts.has(postId)) {
+          likeBtn.classList.add('liked');
+          likeBtn.disabled = true;
+        }
+        if (dislikedPosts.has(postId)) {
+          dislikeBtn.classList.add('disliked');
+          dislikeBtn.disabled = true;
+        }
+
+        likeBtn.addEventListener('click', () => {
+          if (likedPosts.has(postId)) return; // já curtiu, não faz nada
+
+          // Se descurtiu antes, remove o dislike
+          if (dislikedPosts.has(postId)) {
+            dislikedPosts.delete(postId);
+            dislikeBtn.classList.remove('disliked');
+            dislikeBtn.disabled = false;
+
+            const dislikeCountSpan = dislikeBtn.nextElementSibling;
+            dislikeCountSpan.textContent = (parseInt(dislikeCountSpan.textContent) - 1).toString();
           }
+
+          // Adiciona like
+          likedPosts.add(postId);
+          likeBtn.classList.add('liked');
+          likeBtn.disabled = true;
+
+          const likeCountSpan = likeBtn.nextElementSibling;
+          likeCountSpan.textContent = (parseInt(likeCountSpan.textContent) + 1).toString();
+
+          saveStorage();
+          updateSidebarTotals();
+        });
+
+        dislikeBtn.addEventListener('click', () => {
+          if (dislikedPosts.has(postId)) return; // já descurtiu, não faz nada
+
+          // Se curtiu antes, remove o like
+          if (likedPosts.has(postId)) {
+            likedPosts.delete(postId);
+            likeBtn.classList.remove('liked');
+            likeBtn.disabled = false;
+
+            const likeCountSpan = likeBtn.nextElementSibling;
+            likeCountSpan.textContent = (parseInt(likeCountSpan.textContent) - 1).toString();
+          }
+
+          // Adiciona dislike
+          dislikedPosts.add(postId);
+          dislikeBtn.classList.add('disliked');
+          dislikeBtn.disabled = true;
+
+          const dislikeCountSpan = dislikeBtn.nextElementSibling;
+          dislikeCountSpan.textContent = (parseInt(dislikeCountSpan.textContent) + 1).toString();
+
+          saveStorage();
+          updateSidebarTotals();
         });
       });
 
-      document.querySelectorAll('.dislike-button').forEach(button => {
-        button.addEventListener('click', () => {
-          const card = button.closest('[data-post-id]');
-          const postId = card.dataset.postId;
-          const countEl = card.querySelector('.dislike-count');
-          if (!dislikedPosts.has(postId)) {
-            dislikedPosts.add(postId);
-            countEl.textContent = parseInt(countEl.textContent) + 1;
-            button.classList.add('disliked');
-            saveStorage();
-          }
-        });
-      });
+      // Comentários
+      let currentPostId = null;
+      const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+      const commentList = document.getElementById('commentList');
+      const commentForm = document.getElementById('commentForm');
+      const commentText = document.getElementById('commentText');
 
+      // Abrir modal com comentários
       document.querySelectorAll('.comment-button').forEach(button => {
         button.addEventListener('click', () => {
-          currentPostId = button.dataset.postId;
-          const comments = commentsData[currentPostId] || [];
-          commentList.innerHTML = comments.map(c => `<li class="list-group-item">${c}</li>`).join('');
+          currentPostId = button.getAttribute('data-post-id');
+          loadComments(currentPostId);
           commentModal.show();
         });
       });
 
+      function loadComments(postId) {
+        commentList.innerHTML = '';
+        const comments = commentsData[postId] || [];
+        if (comments.length === 0) {
+          commentList.innerHTML = '<li class="list-group-item text-muted">Sem comentários ainda.</li>';
+        } else {
+          comments.forEach(c => {
+            const li = document.createElement('li');
+            li.className = 'list-group-item';
+            li.textContent = c;
+            commentList.appendChild(li);
+          });
+        }
+      }
+
       commentForm.addEventListener('submit', e => {
         e.preventDefault();
-        if (currentPostId && commentText.value.trim()) {
-          const comment = commentText.value.trim();
-          commentsData[currentPostId] = commentsData[currentPostId] || [];
-          commentsData[currentPostId].push(comment);
-          saveStorage();
-          commentList.innerHTML += `<li class="list-group-item">${comment}</li>`;
-          const countEl = document.querySelector(`.comment-button[data-post-id="${currentPostId}"] .comment-count`);
-          countEl.textContent = commentsData[currentPostId].length;
-          commentText.value = '';
+        const text = commentText.value.trim();
+        if (!text) return;
+
+        if (!commentsData[currentPostId]) {
+          commentsData[currentPostId] = [];
+        }
+        commentsData[currentPostId].push(text);
+        saveStorage();
+
+        loadComments(currentPostId);
+        updateCommentCount(currentPostId);
+
+        commentText.value = '';
+      });
+
+      function updateCommentCount(postId) {
+        const commentBtn = document.querySelector(`.comment-button[data-post-id="${postId}"]`);
+        if (!commentBtn) return;
+
+        const countSpan = commentBtn.querySelector('.comment-count');
+        const count = commentsData[postId]?.length || 0;
+        countSpan.textContent = count;
+      }
+
+      // Inicializa as contagens dos comentários ao carregar página
+      document.querySelectorAll('.comment-button').forEach(button => {
+        const pid = button.getAttribute('data-post-id');
+        updateCommentCount(pid);
+      });
+
+      // Atualiza os totais da sidebar no carregamento
+      updateSidebarTotals();
+
+      // Modo escuro
+      const modeToggleBtn = document.querySelector('.mode-toggle');
+      const darkModeKey = 'darkMode';
+
+      function applyDarkMode(enabled) {
+        if (enabled) {
+          document.body.classList.add('dark-mode');
+          modeToggleBtn.textContent = '☀️';
+        } else {
+          document.body.classList.remove('dark-mode');
+          modeToggleBtn.textContent = '🌙';
+        }
+      }
+
+      modeToggleBtn.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        if (isDark) {
+          localStorage.setItem(darkModeKey, 'enabled');
+          modeToggleBtn.textContent = '☀️';
+        } else {
+          localStorage.removeItem(darkModeKey);
+          modeToggleBtn.textContent = '🌙';
         }
       });
 
-      // Modo escuro
-      const modeButton = document.querySelector('.mode-toggle');
-      const body = document.body;
-      const isDark = localStorage.getItem('darkMode') === 'true';
-      if (isDark) body.classList.add('dark-mode');
-
-      modeButton.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-      });
-
-      // Estado inicial: aplicar likes/dislikes salvos
-      likedPosts.forEach(postId => {
-        const btn = document.querySelector(`[data-post-id="${postId}"] .like-button`);
-        if (btn) btn.classList.add('liked');
-      });
-      dislikedPosts.forEach(postId => {
-        const btn = document.querySelector(`[data-post-id="${postId}"] .dislike-button`);
-        if (btn) btn.classList.add('disliked');
-      });
-      Object.entries(commentsData).forEach(([postId, comments]) => {
-        const countEl = document.querySelector(`.comment-button[data-post-id="${postId}"] .comment-count`);
-        if (countEl) countEl.textContent = comments.length;
-      });
+      // Aplica o modo escuro se estava ativado anteriormente
+      if (localStorage.getItem(darkModeKey) === 'enabled') {
+        applyDarkMode(true);
+      } else {
+        applyDarkMode(false);
+      }
     });
   </script>
-
 </body>
 </html>
-
-
- 
-

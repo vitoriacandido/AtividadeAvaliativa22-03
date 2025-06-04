@@ -18,7 +18,7 @@ body {
 }
 
 .card-body {
-  background-color: #ffcf30;
+  background-color: #fff8e1;
 }
 
 .like-button, .dislike-button, .comment-button {
@@ -47,7 +47,7 @@ body {
 }
 
 .user-sidebar, .right-sidebar {
-  border-right: 1px solid #ff0202;
+  border-right: 1px solid #ddd;
 }
 
 .modal-content {

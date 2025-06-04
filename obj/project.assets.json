@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alunos\\Documents\\444\\AtividadeAvaliativa22-03\\AtividadeAvaliativa22-03.csproj",
+      "projectUniqueName": "C:\\Users\\Alunos\\Documents\\1\\AtividadeAvaliativa22-03\\AtividadeAvaliativa22-03.csproj",
       "projectName": "AtividadeAvaliativa22-03",
-      "projectPath": "C:\\Users\\Alunos\\Documents\\444\\AtividadeAvaliativa22-03\\AtividadeAvaliativa22-03.csproj",
+      "projectPath": "C:\\Users\\Alunos\\Documents\\1\\AtividadeAvaliativa22-03\\AtividadeAvaliativa22-03.csproj",
       "packagesPath": "C:\\Users\\Alunos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alunos\\Documents\\444\\AtividadeAvaliativa22-03\\obj\\",
+      "outputPath": "C:\\Users\\Alunos\\Documents\\1\\AtividadeAvaliativa22-03\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Alunos\\AppData\\Roaming\\NuGet\\NuGet.Config"
