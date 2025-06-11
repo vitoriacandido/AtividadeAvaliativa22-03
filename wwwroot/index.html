@@ -23,14 +23,14 @@
   <main class="container-fluid">
     <div class="row min-vh-100">
       <!-- Sidebar -->
-      <aside class="col-md-2 bg-warning text-center py-4 user-sidebar">
+      <aside class="col-md-2 bg text-center py-4 user-sidebar">
         <img src="img/logo1.jpg" class="rounded-circle mb-4" width="95" alt="Logo Sabor do Brasil">
         <h5>Sabor Brasil</h5>
         <hr>
         <p><strong id="totalLikes">0</strong><br>Likes</p>
         <p><strong id="totalDislikes">0</strong><br>Dislikes</p>
-        <button type="button" class="btn btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-      </aside>
+        <button type="button" class="btn bg-danger btn-outline-dark mt-3" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+        </aside>
 
       <!-- Publicações -->
       <section class="col-md-8 p-4">
@@ -42,7 +42,8 @@
             <div class="card" data-post-id="1">
               <img src="img/feij.webp" class="card-img-top" alt="Feijoada">
               <div class="card-body">
-                <h5 class="card-title">Feijoada</h5>
+                <h3 class="card-title">Feijoada</h3>
+                 <h5><p>A melhor do Brasil</p></h5>
                 <p class="mb-1 text-muted small">Local 01 - Brasil</p>
                 <div class="d-flex gap-3 align-items-center">
                   <button type="button" class="like-button" title="Curtir Feijoada"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
@@ -58,7 +59,8 @@
             <div class="card">
               <img src="img/picanha.jpg" class="card-img-top" alt="Picanha na brasa">
               <div class="card-body">
-                <h5 class="card-title">Picanha na Brasa</h5>
+                <h3 class="card-title">Picanha na Brasa</h3>
+                 <h5><p>Quem aí adora um churrasco?</p></h5>
                 <p class="mb-1 text-muted small">Local 02 - Rio Grande do Sul</p>
                 <div class="d-flex align-items-center gap-3">
                   <button class="like-button" aria-label="Curtir Picanha"><i class="fas fa-thumbs-up"></i></button><span class="like-count">86</span>
@@ -76,7 +78,8 @@
             <div class="card">
               <img src="img/moq.jpg" class="card-img-top" alt="Moqueca baiana">
               <div class="card-body">
-                <h5 class="card-title">Moqueca Baiana</h5>
+                <h3 class="card-title">Moqueca Baiana</h3>
+                <h5><p>A melhor do Brasil</p></h5>
                 <p class="mb-1 text-muted small">Local 03 - Maceió-AL</p>
                 <div class="d-flex align-items-center gap-3">
                   <button class="like-button" aria-label="Curtir Moqueca"><i class="fas fa-thumbs-up"></i></button><span class="like-count">775</span>
@@ -94,7 +97,8 @@
             <div class="card">
               <img src="img/salada.webp" class="card-img-top" alt="Salada Italiana">
               <div class="card-body">
-                <h5 class="card-title">Salada Italiana</h5>
+                <h3 class="card-title">Salada Italiana</h3>
+                <h5><p>Sabor fresco e saudável</p></h5>
                 <p class="mb-1 text-muted small">Local 04 - Itália</p>
                 <div class="d-flex align-items-center gap-3">
                   <button class="like-button" aria-label="Curtir Salada Italiana"><i class="fas fa-thumbs-up"></i></button><span class="like-count">856</span>
@@ -112,7 +116,8 @@
             <div class="card">
               <img src="img/sp.webp" class="card-img-top" alt="Salada de Pepino">
               <div class="card-body">
-                <h5 class="card-title">Salada de Pepino</h5>
+                <h3 class="card-title">Salada de Pepino</h3>
+                <h5><p>Refrescante e leve</p></h5>
                 <p class="mb-1 text-muted small">Local 05 - Desconhecido</p>
                 <div class="d-flex align-items-center gap-3">
                   <button class="like-button" aria-label="Curtir Salada de Pepino"><i class="fas fa-thumbs-up"></i></button><span class="like-count">985</span>
@@ -130,7 +135,8 @@
             <div class="card">
               <img src="img/file.jfif" class="card-img-top" alt="Filé Mignon com rúcula">
               <div class="card-body">
-                <h5 class="card-title">Filé Mignon com Rúcula</h5>
+                <h3 class="card-title">Filé Mignon com Rúcula</h3>
+                <h5><p>Uma explosão de sabores</p></h5>
                 <p class="mb-1 text-muted small">Local 06 - França</p>
                 <div class="d-flex align-items-center gap-3">
                   <button class="like-button" aria-label="Curtir Filé Mignon"><i class="fas fa-thumbs-up"></i></button><span class="like-count">75</span>
@@ -197,6 +203,8 @@
       </div>
     </div>
   </div>
+  
+  
 
   <!-- Botão modo escuro -->
   <button class="btn btn-dark mode-toggle" title="Alternar modo escuro" style="position: fixed; bottom: 20px; right: 20px;">🌙</button>
@@ -204,12 +212,12 @@
   <!-- Rodapé -->
   <footer class="text-center py-4 bg-dark text-white">
     <div class="container">
-      <div class="mb-3">
-        <a href="https://www.instagram.com/viczx_11?igsh=MXRsMGN4bHR4ODlqaA==" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" class="text-white me-3"><i class="fab fa-github"></i></a>
-      </div>
       <p class="mb-0">&copy; 2025 - Sabor do Brasil</p>
     </div>
+    <div>-------------------</div>
+      <div class="mb-3">
+        <a href="https://www.instagram.com/viczx_11?igsh=MXRsMGN4bHR4ODlqaA==" class="text-white me-3" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/vitoriacandido/AtividadeAvaliativa22-03.git" class="text-white me-3" title="GitHub"><i class="fab fa-github"></i></a>
   </footer>
 
   <!-- Scripts Bootstrap -->
